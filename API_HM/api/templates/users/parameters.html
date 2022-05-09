@@ -1,0 +1,165 @@
+{% extends "real/baseExt.html" %}
+
+<!-- {% block titulo %} Lista de usuarios {% endblock %} -->
+<!-- AQUI MODIFICO EDU-->
+{% block contenido %} 
+<section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h1 class="cta-title">Prueba de tamizaje - Parámetros</h1>
+        </div>
+      </div>
+
+<!-- AQUI ACABA MODIFICACION-->
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'updateParameter' extension.user.pk %}" role="button">Editar prueba</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Prueba de tamizaje - Parámetros</h4>
+    </div>
+    <div class="card-footer text-muted">
+                    <b>Informe</b>   
+                    <a name="" id="" class="btn btn-info" href="{% url 'dashboardr' extension.user.pk %}" role="button">Ver</a>  | <a name="" id="" class="btn btn-danger" href="{% url 'users'  %}" role="button">Regresar</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Títulos</th>
+                    <th>Valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Usuario</td>
+                    <td>{{ parameter.ID_User }}</td>
+                </tr>
+                <tr>
+                    <td>Último análisis</td>
+                    <td>{{ parameter.lastupdate }}</td>
+                </tr>
+                <tr> 
+                    <td>Cintura</td>
+                    <td>{{ parameter.waist }}</td>
+                </tr> 
+                <tr>
+                    <td>Peso</td>
+                    <td>{{ parameter.weight }}</td>
+                </tr>
+                <tr>
+                    <td>IMC</td>
+                    <td>{{ parameter.imc }}</td>
+                </tr>
+                <tr>
+                    <td>Clock</td>
+                    <td>{{ parameter.clock }}</td>
+                </tr>
+                <tr>
+                    <td>GDS</td>
+                    <td>{{ parameter.gds }}</td>
+                </tr>
+                <tr>
+                    <td>Katz</td>
+                    <td>{{ parameter.katz }}</td>
+                </tr>
+                <tr>
+                    <td>LWB</td>
+                    <td>{{ parameter.lwb }}</td>
+                </tr>
+                <tr>
+                    <td>Sarcf</td>
+                    <td>{{ parameter.sarcf }}</td>
+                </tr>
+                <tr>
+                    <td>Pantcirs</td>
+                    <td>{{ parameter.pantcirs }}</td>
+                </tr>
+                <tr>
+                    <td>Fuerza Izquierda</td>
+                    <td>{{ parameter.leftstrong }}</td>
+                </tr>
+                <tr>
+                    <td>Fuerza Derecha</td>
+                    <td>{{ parameter.rightstrong }}</td>
+                </tr>
+                <tr>
+                    <td>Higheststrong</td>
+                    <td>{{ parameter.higheststrong }}</td>
+                </tr>
+                <tr>
+                    <td>Sppbbalance</td>
+                    <td>{{ parameter.sppbbalance }}</td>
+                </tr>
+                <tr>
+                    <td>Standem</td>
+                    <td>{{ parameter.standem }}</td>
+                </tr>
+                <tr>
+                    <td>Tandem</td>
+                    <td>{{ parameter.tandem }}</td>
+                </tr>
+                <tr>
+                    <td>Spds</td>
+                    <td>{{ parameter.spds }}</td>
+                </tr>
+                <tr>
+                    <td>Mtss</td>
+                    <td>{{ parameter.mtss }}</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>{{ parameter.speed }}</td>
+                </tr>
+                <tr>
+                    <td>Global sppb</td>
+                    <td>{{ parameter.globalsppb }}</td>
+                </tr>
+                <tr>
+                    <td>frailty sppb</td>
+                    <td>{{ parameter.frailtysppb }}</td>
+                </tr>
+                <tr>
+                    <td>Frailty cfs</td>
+                    <td>{{ parameter.frailtycfs }}</td>
+                </tr>
+                <tr>
+                    <td>Gijon</td>
+                    <td>{{ parameter.gijon }}</td>
+                </tr>
+                <tr>
+                    <td>Otime</td>
+                    <td>{{ parameter.ospace }}</td>
+                </tr>
+                <tr>
+                    <td>Ospace</td>
+                    <td>{{ parameter.otime }}</td>
+                </tr>
+                <tr>
+                    <td>Calculation</td>
+                    <td>{{ parameter.calculation }}</td>
+                </tr>
+                <tr>
+                    <td>Memoryt</td>
+                    <td>{{ parameter.memoryt }}</td>
+                </tr>
+                <tr>
+                    <td>Eject</td>
+                    <td>{{ parameter.eject }}</td>
+                </tr>
+                <tr>
+                    <td>Totalmmse</td>
+                    <td>{{ parameter.totalmmse }}</td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>   
+    </div>
+    <div class="card-footer text-muted">
+        
+        <a name="" id="" class="btn btn-info" href="{% url 'updateParameter' extension.user.pk %}" role="button">Editar</a> | <a name="" id="" class="btn btn-danger" href="{% url 'deleteParameter' extension.user.pk %}" role="button">Borrar</a>
+        
+    </div>
+</div>
+{% endblock %}

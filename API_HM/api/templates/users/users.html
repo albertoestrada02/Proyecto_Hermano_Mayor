@@ -1,0 +1,97 @@
+{% extends "real/baseExt.html" %}
+
+<!-- {% block titulo %} Lista de usuarios {% endblock %} -->
+<!-- AQUI MODIFICO EDU-->
+
+{% block contenido %} 
+<section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h1 class="cta-title">Información de Usuarios</h1>
+        </div>
+      </div>
+
+
+<!-- AQUI ACABA MODIFICACION-->
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'createUser' %}" role="button">Agregar usuario</a>
+        <br>
+        <!--INICIO DE MODIFICACION SEARCH-->
+        <form class="d-flex" method="POST" >
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Búsqueda por Nombre" aria-label="Search" name="searched">
+            <button class="btn btn-secondary" type="submit">Buscar</button>
+        </form>
+        
+        <!--FIN SEARCH-->
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Usuarios</h4>
+    </div>
+    <div class="card-footer text-muted">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Username</th>
+                    <th>Género</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Iglesia</th>
+                    <th>Admin</th>
+                    <th>P. Tamizaje</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for extension in users %}
+                <tr>
+                    <td>{{ extension.user.pk }}</td>
+                    <td>{{ extension.user.first_name }}</td>
+                    <td>{{ extension.user.last_name }}</td>
+                    <td>{{ extension.user.username }}</td>
+                    <td>{{ extension.gender }}</td>
+                    <td>{{ extension.phone }}</td>
+                    <td>{{ extension.user.email }}</td>
+                    <td>{{ extension.id_church }}</td>
+                    {% if extension.isAdmin %}
+                        <td>Si</td>
+                        {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    
+                        
+                    {% if extension.user.prueba %}
+                    <td>
+                        {% if not extension.isAdmin %}
+                        <a name="" id="" class="btn btn-secondary" href="{% url 'parameters' extension.user.pk %}" role="button">Ver</a>
+                        {% else%}
+                        <a name="" id="" class="btn btn-disabled" href="" role="button"></a>
+                        {% endif %} 
+                        <a name="" id="" class="btn btn-disabled" href="{% url 'parameters' extension.user.pk %}" role="button"></a>   
+                    </td>
+                    {% else %}
+                    <td>
+                        <a name="" id="" class="btn btn-primary" href="{% url 'createParameter' extension.user.pk %}" role="button">Crear</a> 
+                    </td>
+                    
+                    {% endif %}
+                    <td> <a name="" id="" class="btn btn-info" href="{% url 'updateUser' extension.user.pk %}" role="button">Editar</a> 
+                         <a name="" id="" class="btn btn-danger" href="{% url 'deleteUser' extension.user.pk %}" role="button">Borrar</a>
+                    </td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>    
+    </div>
+    <div class="card-footer text-muted">
+
+        
+    </div>
+</div>
+{% endblock %}

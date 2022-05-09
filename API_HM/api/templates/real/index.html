@@ -1,0 +1,203 @@
+{% extends "real/baseH.html" %}
+{% load static %}
+
+
+
+{% block barra %}
+<li><a href="{% url 'index' %}#about">Acerca de nosotros</a></li>
+<li><a href="{% url 'index' %}#services">Videos Informativos</a></li>
+<li><a href="{% url 'index' %}#team">Contacto</a></li>
+<li class="menu-has-children"><a href="{% url 'users' %}">Administrar</a>
+  <ul>
+    <li><a href="{% url 'users' %}">Usuarios</a></li>
+    <li><a href="{% url 'churchs' %}">Iglesias</a></li>
+  </ul>
+</li>
+{% endblock %}
+
+{% block contenido %}
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Una vivencia cristiana y eclesial profunda </h1>
+      <h2>A través de una fraternidad compartida</h2>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <section id="about">
+      <div class="container">
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <h2 class="title">Nosotros</h2>
+            <p>
+              <!-- Aqui cambie-->
+              Somos una pastoral de la Iglesia católica de la Arquidiócesis de Monterrey, creada para atender a la población adulta mayor hacia una vivencia con espíritu de alegría y esperanza cristiana. Nos enfocamos en desarrollar el autoconocimiento, la autoestima, la amistad y el apostolado, apoyando también lo:
+            </p>
+            <!--Aqui acabe-->
+
+            <div class="icon-box wow fadeInUp">
+              <div class="icon"><i class="fa-solid fa-cross"></i></div>
+              <h4 class="title"><a>Espiritual</a></h4>
+              <!-- Aqui cambie-->
+              <p class="description">Dándole la importancia que merece a la oración, apoyando el fortalecimiento cultural de los individuos que quieran adentrarse a nuestra organización.</p>
+            </div>
+            <!--Aqui acabe-->
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa-solid fa-handshake-angle"></i></div>
+              <h4 class="title"><a>Mental</a></h4>
+              <!-- Aqui cambie-->
+              <p class="description">Preparados para enfrentar cualquier problema que se pueda presentar, estaremos dispuestos a apoyar en mejorar la situación.              </p>
+            </div>
+            <!--Aqui acabe-->
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa-solid fa-person"></i></div>
+              <h4 class="title"><a>Social</a></h4>
+              <!-- Aqui cambie-->
+              <p class="description">Somos una comunidad unida donde nos ayudamos y apoyamos de alguna manera entre todos.</p>
+            </div>
+            <!--Aqui acabe-->
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">Videos Informativos</h3>
+          <p class="section-description">Presentando videos con información de interés común. (Para ver video, click en el icono)</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href="https://www.youtube.com/watch?v=YOw81eBsjy4"><i class="fa-solid fa-book-bible"></i></a></div>
+              <h4 class="title"><a>Bibia en audiolibro </a></h4>
+              <p class="description">"La biblia no es la palabra del hombre acerca de Dios, sino la palabra de Dios sobre el hombre." <i>- John Barth</i></p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="box">
+              <div class="icon"><a href="https://www.youtube.com/watch?v=WeKckt351nw&t=3s"><i class="fa-solid fa-dove"></i></a></div>
+              <h4 class="title"><a >Mejora tu vida espiritual</a></h4>
+              <p class="description">"La primera tarea del ser humano es darse luz a sí mismo."<i>- Erich Fromm</i></p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="box">
+              <div class="icon"><a href="https://www.youtube.com/watch?v=9svic7ldL2w"><i class="fa-solid fa-leaf"></i></a></div>
+              <h4 class="title"><a >Meditación</a></h4>
+              <p class="description">"La meditación no es concentración ni relajación, si no una especie de regreso a casa." <i>- Sadhguru</i></p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href="https://www.youtube.com/watch?v=xmwPl09QtEM&t=1s"><i class="fa-solid fa-spa"></i></a></div>
+              <h4 class="title"><a >Hay que tener Fé</a></h4>
+              <p class="description">"La fé es creer lo que no ves; la recompensa es ver lo que crees." <i>- San Agustín </i></p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="box">
+              <div class="icon"><a href="https://www.youtube.com/watch?v=hOJf-tbjJZk"><i class="fa-solid fa-feather"></i></a></div>
+              <h4 class="title"><a >Del papa Francisco al mundo: "Nadie se salva solo"</a></h4>
+              <p class="description">"Jesús es la puerta que sabre a la salvación. Una puerta que esta abierta a todos." <i>- Papa Francisco</i></p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa-solid fa-money-bill-1"></i></a></div>
+              <h4 class="title"><a >La mayor consulta de la historia en la Iglesia</a></h4>
+              <p class="description">"Tener esperanza es ver la luz a pesar de estar rodeado de oscuridad." <i>- Lifeder</i></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="call-to-action">
+      <div class="container wow fadeIn">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">Entretenimiento</h3>
+            <p class="cta-text">Disfruta de los diferentes minijuegos que tenemos para agilizar la mente.</p>
+            <h2 class="cta-title">Clave: CHM-TEC2022</h2>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="https://a01570679.itch.io/juegoajolote">Jugar</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Directivos</h3>
+          <p class="section-description">Breve presentación</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="{% static 'img/img_574534.png' %}" alt="" /></div>
+              <h4>Pbro. Israel Pardo Vargas</h4>
+              <span>Coordinador General</span>
+              <div class="social">
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href="mailto:ipardo@iglesiademonterrey.com"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="{% static 'img/img_574534.png' %}" alt=""/></div>
+              <h4>Héctor Emilio Ayala Morales</h4>
+              <span>Fundador, Consejero, Proyectos Especiales y Relaciones con Instituciones</span>
+              <div class="social">
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href="mailto:ayalahector@hotmail.com"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="{% static 'img/img_574534.png' %}" alt=""/></div>
+              <h4>Raymundo Arroyave</h4>
+              <span>Co-Fundador y Salud</span>
+              <div class="social">
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href="mailto:raymundoarroyave@hotmail.com"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="{% static 'img/img_574534.png' %}" alt=""/></div>
+              <h4>Alejandra Vázquez Moreno</h4>
+              <span>Asistente Ejecutiva</span>
+              <div class="social"> 
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href="mailto:avasquez@iglesiademonterrey.com"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+{% endblock %}

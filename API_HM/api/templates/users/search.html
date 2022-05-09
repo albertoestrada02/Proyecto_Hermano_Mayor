@@ -1,0 +1,90 @@
+{% extends "real/baseExt.html" %}
+{% block barra %}
+<li><a href="{% url 'index' %}#about">Acerca de nosotros</a></li>
+<li><a href="{% url 'index' %}#services">Videos Informativos</a></li>
+<li><a href="{% url 'index' %}#team">Contacto</a></li>
+<li class="menu-has-children"><a href="{% url 'users' %}">Administrar</a>
+  <ul>
+    <li><a href="{% url 'users' %}">Usuarios</a></li>
+    <li><a href="{% url 'churchs' %}">Iglesias</a></li>
+    <li><a href="{% url 'parameters' %}">Parámetros</a></li>
+  </ul>
+</li>
+{% endblock %}
+{% block contenido %}
+<style>
+    *{
+        color: white;
+    }
+    .buscadoresH{
+        color: white;   
+    }
+</style>
+
+<section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h1 class="cta-title">Información de Usuarios</h1>
+        </div>
+      </div>
+      <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'createUser' %}" role="button">Agregar usuario</a>
+        <br>
+        <!--INICIO DE MODIFICACION SEARCH-->
+        <form class="d-flex" method="POST" action="{% url 'search' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Búsqueda por ID" aria-label="Search" name="searched">
+            <button class="btn btn-secondary" type="submit">Buscar</button>
+        </form>
+        
+        <!--FIN SEARCH-->
+    </div>
+<!--AQUI ENTRA LO NUEVO-->
+{% if searched %}
+        <h1 class="buscadoresH">Se buscó: {{ searched }}</h1>
+        <br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Username</th>
+            <th>Género</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+            <th>Iglesia</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.ID_User }}</td>
+            <td>{{ result.firstName }}</td>
+            <td>{{ result.lastName }}</td>
+            <td>{{ result.username }}</td>
+            <td>{{ resultuser.gender }}</td>
+            <td>{{ result.phone }}</td>
+            <td>{{ result.mail }}</td>
+            <td>{{ result.id_church }}</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <h1 class="buscadoresH"> No se encontró lo que se buscaba... </h1>
+    {% endif %}
+    </tbody>
+</table>    
+<!--AQUI ACABA -->
+   <!-- {% if searched %}
+        <h1 class="buscadoresH">Se buscó: {{ searched }}</h1>
+        <br/>
+        {% for result in results %}
+            {{ result }}<br/>  
+        {% endfor %}
+    {% else %}
+        <h1 class="buscadoresH"> No se encontró lo que se buscaba... </h1>
+    {% endif %}
+   -->
+</section>
+{% endblock %}

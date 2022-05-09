@@ -1,0 +1,27 @@
+{% extends "real/baseExt.html" %}
+
+<!--{% block titulo %} Agregar un nuevo usuario {% endblock %} -->
+<!-- AQUI MODIFIQUE-->
+
+{% block contenido %} 
+<section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h1 class="cta-title">CREADOR DE USUARIOS</h1>
+        </div>
+      </div>
+<!-- AQUI ACABA MODIFICACION-->
+<div class="card">
+    <div class="card-header">
+        Crear un usuario
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del usuario</h4>
+        {% include 'users/formUser.html' %}
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% load static %}
+{% block contenido %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        body{
+            background-color: #f89b9e;
+background-image: linear-gradient(315deg, #f89b9e 0%, #c9d9ff 74%);
+        }
+        .bg{
+            background-image: url("{% static 'img/cross-1772560_1280.jpg' %}"); 
+            background-position: center center;
+        }
+    </style>
+
+</head>
+<body>
+
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+    {% endfor %}
+{% endif %}
+
+    <div class="container w-75 bg-primary mt-5 rounded shadow">
+            <div class="row align-items-stretch">
+                <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+                </div>
+                <div class="col bg-white p-5 rounded-end">
+                    <div class="text-end">
+                        <img src="{% static 'img/logo.jpg' %}" width="100px" alt="">
+                    </div>
+                    <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+                    <form class="form" action ="{% url 'login_user' %}" method="POST" id="form">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <label for="username" class="form-label">Usuario:</label>
+                            <input type="text" name="username" class="form-control" name="username">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" name="password" class="form-control" name="password">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                        </div>
+                        <div class="my-3">
+                            <span>¿No tienes cuenta? <a href="{% url 'registro' %}">Regístarte</a></span> <br>
+                        </div>
+                    </form>
+                    <div class="container w-100 my-5">
+                        <div class="row text-center">
+                            <div class="col-12"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                
+                            </div>
+                        <div class="col">
+                            
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+{% endblock %}

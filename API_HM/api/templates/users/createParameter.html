@@ -1,0 +1,25 @@
+{% extends "real/baseExt.html" %}
+
+<!--{% block titulo %} Agregar un nuevo usuario {% endblock %} -->
+
+{% block contenido %} 
+<section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h1 class="cta-title">CREADOR DE PRUEBA</h1>
+        </div>
+      </div>
+<div class="card">
+    <div class="card-header">
+        Agregar un parámetro
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Parametros:</h4>
+        {% include 'users/formParameters.html' %}
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+{% endblock %}

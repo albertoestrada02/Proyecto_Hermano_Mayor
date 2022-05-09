@@ -1,0 +1,17 @@
+<form method="post">
+  {% csrf_token %}
+  {% for campo in formulario %}
+    <div class="mb-3">
+      <label for="" class="form-label">{{ campo.label }}</label>
+    </br>
+      <!-- <input type="{{ campo.field.widget.input_type }}"
+        class="" name="{{ campo.name }}" id="" aria-describedby="helpId" placeholder="{{ campo.label }}" value="{{ campo.value | default:'' }}"> -->
+        {{ campo }}
+      </div>
+    <div class="col-12 help-text"> {{campo.errors}} </div>
+    {% endfor %}
+    <input name="" id="" class="btn btn-success" type="submit" value="Enviar información">
+
+    <a name="" id="" class="btn btn-primary" href="{% url 'users' %}" role="button">Cancelar</a>
+</form>
+

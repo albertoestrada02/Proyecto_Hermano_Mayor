@@ -1,0 +1,176 @@
+{% extends "real/baseDashU.html" %}
+{% load static %}
+
+{% block links %}
+    <title>Mis resultados</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/graph_dash.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block barra %}
+<li><a href="{% url 'userIndex' %}#about">Acerca de nosotros</a></li>
+<li><a href="{% url 'userIndex' %}">Mis resultados</a></li>
+<li><a href="{% url 'userIndex' %}#services">Videos Informativos</a></li>
+<li><a href="{% url 'userIndex' %}#team">Contacto</a></li>
+<li><a href="{% url 'userIndex' %}#call-to-action">Videojuego</a></li>
+{% endblock %}
+
+
+{% block contenido %}
+<style>
+  body{
+    background-color: #f89b9e;
+background-image: linear-gradient(315deg, #f89b9e 0%, #c9d9ff 74%);
+  }
+  .container{
+    color:rgb(56, 55, 55); 
+     }
+</style>
+<!--AJOLOTE-->
+
+   <!--AJOLOTE--> 
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="col-6">
+          <h1 id="name">{{extension.user.first_name}} {{extension.user.last_name}}</h1>
+        </div> 
+        <div class="col-6">
+          <!--<p class="text-right"><a href="javascript:window.print()">Imprimir</a></p>-->
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-8 col-sm-12">
+          <div class="media">
+            <img class="mr-3" src="{% static 'img/img_574534.png' %}" width="115" height="115" alt="Generic placeholder image">
+            <div class="media-body row justify-content-start-around m-1">
+              <h5 class="mt-0">Información personal</h5>
+              &nbsp;&nbsp;Cintura: {{parameters.waist}} cm <br>
+              &nbsp;&nbsp;Peso: {{parameters.weight}} Kg<br>
+              &nbsp;&nbsp;IMC: {{parameters.imc}}<br>
+              &nbsp;&nbsp;Genero: {{extension.gender}} <br>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="row justify-content-md-around m-1">
+            <address>
+              <strong>Dirección</strong><br>
+              Monterrey Nuevo León</br>
+              <a>Correo electrónico: {{extension.user.email}}</a>
+              <br>
+              Celular: {{extension.phone}}
+            </address>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <h2>Parametros</h2>
+          <hr>
+          <div class="row">
+              <!-- METER AQUI LA POSIBLE TABLA -->
+              &nbsp;&nbsp;MMSE 25-30 normal, 22-24 DCL, 18-22 Demencia leve, 12-18 Demencia Moderada, &lt12 Demencia severa. <br>
+              <br>&nbsp;&nbsp;GIJON &lt7, situación social buena,
+              8-9 riesgo int institucionalización,
+              &gt10 riesgo alto institucionalización. <br>
+              <br>&nbsp;&nbsp;RELOJ 2 Normal,
+              1 Deterioro cognitivo pb demencia leve,
+              0 probable demencia mod-severa
+              <br>
+              <br>&nbsp;&nbsp;GLOBALSPPB &lt8 desempeño físico anormal.
+              <br> 
+              <br>&nbsp;&nbsp;FMAYOR 0 normal,
+              1-2 prefrágil,
+              3 a 5 frágil
+              <br> &nbsp;
+              <br>&nbsp;&nbsp;GDS &lt5 normal,
+              6-9 pb depresión,
+              &lt10  depresión establecida
+              <br> &nbsp;
+              <br>&nbsp;&nbsp;LWB &lt6 es anormal.
+            <div class="col-6">
+              <h5 class="text-right"><span aria-hidden="true"></span> </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <h2>Prueba de tamizaje</h2>
+          <hr>         
+          <div class="progress mt-4" style="height: 18px;">
+            <div class="{{color_adv.totalmmse}}" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_parameters.totalmmse}}%">TotalMMSE: {{parameters.totalmmse}}</div>
+          </div>
+          <div class="progress mt-4" style="height: 18px;">
+            <div class="{{color_adv.gijon}}" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_parameters.gijon}}%">Gijon: {{parameters.gijon}}</div>
+          </div>
+          <div class="progress mt-4" style="height: 18px;">
+            <div class="{{color_adv.clock}}" role="progressbar" aria-valuenow="'{{parameters.weight}}'" aria-valuemin="0" aria-valuemax="1000" style="width: {{dic_parameters.clock}}%">Reloj: {{parameters.clock}}</div>
+          </div>
+          <div class="progress mt-4" style="height: 18px;">
+            <div class="{{color_adv.globalsppb}}" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_parameters.globalsppb}}%"> Globalsppb: {{parameters.globalsppb}}</div>
+          </div>
+          <div class="progress mt-4" style="height: 18px;">
+            <div class="{{color_adv.frailtycfs}}" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_parameters.frailtycfs}}%"> Frailty cfs: {{parameters.frailtycfs}}</div>
+          </div>
+          <div class="progress mt-4" style="height: 18px;"> 
+            <div class="{{color_adv.higheststrong}}" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_parameters.higheststrong}}%">Fuerza mayor: {{parameters.higheststrong}}</div>
+          </div> 
+          <div class="progress mt-4" style="height: 18px;">
+            <div class="{{color_adv.gds}}" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_parameters.gds}}%">Gds: {{parameters.gds}}</div>
+          </div>
+          <div class="progress mt-4" style="height: 18px;">
+            <div class="{{color_adv.lwb}}" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_parameters.lwb}}%">Lwb: {{parameters.lwb}}</div>
+          </div> 
+        </div>
+      </div> 
+      <hr>
+      <h2>Recomendaciones</h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="row">
+            <div class="col-5 col-lg-12">
+              <h4>Evaluación&nbsp;&nbsp;</h4>
+            </div>
+            <div class="col-6">
+              <h5 class="text-right"><span aria-hidden="true"></span> </h5>
+            </div>
+          </div>
+          <h5><span class="badge badge-secondary">&nbsp;Población geriátrica</span></h5>
+          <p>{{parameters.evaluation}}</p>
+          <ul>
+          </ul>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="row">
+            <div class="col-5 col-lg-12">
+              <h4>Planificación avanzada de las atenciones necesarias</h4>
+            </div>
+            <div class="col-6">
+              <h5 class="text-right"><span aria-hidden="true"></span> </h5>
+            </div>
+          </div>
+          <h5><span class="badge badge-secondary">&nbsp;Salud psicosocial:</span></h5>
+          <p>{{parameters.planning}}</p>
+          <ul>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="container"> </div>
+      <hr>
+      <footer class="text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    {% endblock %}

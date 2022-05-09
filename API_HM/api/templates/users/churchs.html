@@ -1,0 +1,62 @@
+{% extends "real/baseExt.html" %}
+
+<!-- {% block titulo %} Lista de usuarios {% endblock %} -->
+<!-- AQUI MODIFICO EDU-->
+{% block contenido %} 
+<section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h1 class="cta-title">Información de Iglesias</h1>
+        </div>
+      </div>
+
+<!-- AQUI ACABA MODIFICACION-->
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'createChurch' %}" role="button">Agregar iglesia</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Iglesias</h4>
+    </div>
+    <div class="card-footer text-muted">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Municipio</th>
+                    <th>Dirección</th>
+                    <th>Distrito</th>
+                    <th>Código Postal</th>
+                    <th>Telefono</th>
+                    <th>Teléfono alterno</th>
+                    <th>Aciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for church in churchs %}
+                <tr>
+                    <td>{{ church.id_church }}</td>
+                    <td>{{ church.namet }}</td>
+                    <td>{{ church.municipality }}</td>
+                    <td>{{ church.address }}</td>
+                    <td>{{ church.district }}</td>
+                    <td>{{ church.cp }}</td>
+                    <td>{{ church.phone1 }}</td>
+                    <td>{{ church.phone2 }}</td>
+                    <td> <a name="" id="" class="btn btn-info" href="{% url 'updateChurch' church.pk %}" role="button">Editar</a> 
+                        | 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'deleteChurch' church.pk %}" role="button">Borrar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>    
+    </div>
+    <div class="card-footer text-muted">
+
+        
+    </div>
+</div>
+{% endblock %}

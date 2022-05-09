@@ -1,0 +1,26 @@
+{% extends "real/baseExt.html" %}
+
+<!--{% block titulo %} Agregar un nuevo usuario {% endblock %} -->
+<!-- INICIO MODIFICACION-->
+{% block contenido %} 
+<section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h1 class="cta-title">AGREGAR IGLESIA</h1>
+        </div>
+      </div>
+<!-- AQUI ACABA MODIFICACION-->
+<div class="card">
+    <div class="card-header">
+        Crear un usuario
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la iglesia</h4>
+        {% include 'users/formChurch.html' %}
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+.form-group i{
+    position: relative;
+    top:40px;
+    right:10px;
+    visibility: visible;
+}
+.form-group small{
+    visibility: visible;
+    position:relative;
+    bottom:0;
+    left:10px;
+}
+.form-group.correcto input{
+    border-color: #2ecc71;
+}
+.form-group.incorrecto input{
+    border-color: #f04646;
+}
+.form-group.incorrecto small{
+    visibility: visible;
+    color:#f04646;
+}
+body{
+    background: #ffffff;
+}
+.bg{
+    background-image: url("img/st-peters-basilica-4634107_1920.jpg"); 
+    background-position: center center;
+}
